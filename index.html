@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="부산교통공사 청소년 역무원 체험 안내. 부산시 거주 만 13세 이상 만 18세 미만 청소년 대상. 11월 내 합의 후 결정, 강서구청역 역무안전실 앞, 회차별 2시간·총 3회. 참가비 무료, 인솔 교사 참석 필수.">
+  <meta name="theme-color" content="#0751d7">
+  <title>부산교통공사 청소년 역무원 체험</title>
+  <style>
+    :root {
+      --blue: #0751d7;
+      --deep: #102650;
+      --sky: #eaf4ff;
+      --light: #f7faff;
+      --ink: #182945;
+      --muted: #52647e;
+      --line: #d6e1ef;
+      --white: #fff;
+      --accent: #c5ecff;
+      --display: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      --body: "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: var(--body); line-height: 1.7; word-break: keep-all; overflow-wrap: anywhere; }
+    a { color: inherit; }
+    a, button, summary { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+    .hero a:focus-visible, .footer a:focus-visible { outline-color: var(--accent); }
+    .skip { position: fixed; top: 12px; left: 12px; transform: translateY(-160%); z-index: 100; padding: 10px 20px; background: var(--white); border: 2px solid var(--blue); }
+    .skip:focus { transform: translateY(0); }
+    .wrap { width: min(1160px, calc(100% - 80px)); margin-inline: auto; }
+    .header { position: sticky; top: 0; z-index: 20; background: var(--white); border-bottom: 1px solid var(--line); }
+    .header-inner { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .wordmark { text-decoration: none; font-size: 19px; font-weight: 800; letter-spacing: -.6px; }
+    .wordmark small { display: block; font-size: 11px; letter-spacing: 1.8px; color: var(--muted); font-weight: 600; }
+    .nav { display: flex; align-items: center; gap: 28px; }
+    .nav a { font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .nav a:hover { color: var(--blue); }
+    .nav .nav-apply { padding: 9px 18px; color: var(--white); background: var(--blue); border-radius: 5px; }
+    .nav .nav-apply:hover { background: var(--deep); color: var(--white); }
+    .hero { position: relative; overflow: hidden; color: var(--white); background: var(--blue); }
+    .hero::before { content: ""; position: absolute; width: 520px; height: 520px; border: 1px solid #ffffff25; border-radius: 50%; top: -325px; left: -120px; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1.24fr 1fr; align-items: center; gap: 64px; padding-block: 72px 76px; position: relative; }
+    .eyebrow { margin: 0 0 25px; font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+    .hero .eyebrow { color: var(--accent); }
+    h1 { margin: 0; font-family: var(--display); font-size: clamp(44px, 5.45vw, 72px); font-weight: 900; line-height: 1.18; letter-spacing: -4px; }
+    h1 .organizer { display: block; font-size: .39em; letter-spacing: -1.2px; font-weight: 700; margin-bottom: 14px; }
+    h1 .line { display: block; }
+    h1 .tint { color: var(--accent); }
+    .hero-description { font-size: 17px; margin: 25px 0 0; color: #f0f6ff; line-height: 1.9; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+    .hero-tags span { border: 1px solid #ffffff75; border-radius: 100px; padding: 5px 12px; font-size: 12px; font-weight: 700; }
+    .button { display: inline-flex; align-items: center; justify-content: space-between; gap: 38px; text-decoration: none; border-radius: 5px; padding: 15px 22px; font-size: 15px; font-weight: 800; transition: background .18s, transform .18s; }
+    .hero .button { margin-top: 34px; background: var(--white); color: var(--blue); }
+    .button:hover { transform: translateY(-2px); }
+    .hero .button:hover { background: var(--accent); }
+    .ticket { position: relative; background: var(--white); color: var(--deep); border-radius: 12px; box-shadow: 12px 14px 0 #002e962f; }
+    .ticket-head { padding: 28px 30px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .ticket-head strong { font-size: 18px; }
+    .ticket-head span { font-family: Arial, sans-serif; font-size: 18px; font-weight: 800; color: var(--blue); }
+    .ticket-date { padding: 23px 30px 28px; }
+    .ticket-date .date-label { margin: 0; color: var(--muted); font-size: 13px; }
+    .date-range { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin: 12px 0 8px; font-family: Arial, sans-serif; font-size: clamp(29px, 3.6vw, 48px); font-weight: 800; line-height: 1.2; letter-spacing: -1.8px; }
+    .date-range .dash { color: #9cacbf; font-weight: 400; font-size: .65em; }
+    .date-range > span { white-space: nowrap; }
+    .ticket-date .date-text { font-size: 12px; margin: 0; color: var(--muted); }
+    .ticket-body { position: relative; border-top: 2px dashed var(--line); padding: 22px 30px 26px; }
+    .ticket-body::before, .ticket-body::after { content: ""; position: absolute; top: -12px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); }
+    .ticket-body::before { left: -11px; }
+    .ticket-body::after { right: -11px; }
+    .ticket-row { display: grid; grid-template-columns: 66px 1fr; gap: 16px; margin-bottom: 14px; font-size: 14px; }
+    .ticket-row:last-child { margin-bottom: 0; }
+    .ticket-row > span { color: var(--muted); }
+    .ticket-row strong { font-weight: 700; }
+    .ticket-row small { display: block; color: var(--muted); font-size: 11px; margin-top: 3px; }
+    .route-nav { background: var(--sky); border-bottom: 1px solid var(--line); }
+    .route-inner { display: flex; align-items: center; padding-block: 23px; }
+    .route-inner a { display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .route-inner a:hover { color: var(--blue); }
+    .route-dot { width: 13px; height: 13px; background: var(--white); border: 3px solid var(--blue); border-radius: 50%; }
+    .route-line { height: 3px; background: #b3d4ff; margin-inline: 18px; flex: 1; }
+    section.content-section { padding-block: 80px; }
+    .section-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 25px; margin-bottom: 34px; }
+    .section-kicker { display: block; margin-bottom: 8px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: 2px; }
+    h2 { font-family: var(--display); font-size: 34px; line-height: 1.3; letter-spacing: -1.7px; margin: 0; font-weight: 800; }
+    .section-top > p { font-size: 14px; color: var(--muted); margin: 0; }
+    h3 { margin: 0 0 12px; line-height: 1.5; letter-spacing: -.7px; font-size: 21px; }
+    .purpose { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .purpose-block { padding: 24px 0 24px 22px; border-left: 3px solid var(--blue); }
+    .purpose-block p { margin: 0; color: var(--muted); font-size: 15px; }
+    .message { margin-top: 28px; padding: 18px 22px; background: var(--sky); font-size: 14px; }
+    .message strong { color: var(--blue); margin-right: 18px; }
+    .audience { background: var(--light); }
+    .audience-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; }
+    .data-list { margin: 0; }
+    .data-list > div { display: grid; grid-template-columns: 128px 1fr; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .data-list > div:first-child { padding-top: 0; }
+    .data-list dt { color: var(--muted); font-size: 14px; }
+    .data-list dd { margin: 0; font-size: 15px; font-weight: 700; }
+    .data-list dd small { display: block; font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 400; }
+    .pending { display: inline-block; color: var(--muted); background: #eef2f7; border: 1px solid #dbe3ee; border-radius: 4px; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 1px 7px; vertical-align: middle; }
+    .teacher-panel { background: var(--deep); color: var(--white); border-radius: 8px; padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+    .teacher-panel .label { display: inline-block; align-self: flex-start; background: var(--accent); color: var(--deep); padding: 3px 10px; border-radius: 3px; font-size: 12px; font-weight: 800; margin-bottom: 19px; }
+    .teacher-panel h3 { font-size: 29px; line-height: 1.45; margin-bottom: 0; }
+    .programs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .program { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .program-cover { height: 112px; display: flex; align-items: center; justify-content: space-between; padding: 26px; background: var(--sky); }
+    .program:nth-child(2) .program-cover { background: #dceaff; }
+    .program:nth-child(3) .program-cover { background: #eef1ff; }
+    .program-cover .word { color: var(--blue); font-size: 18px; font-weight: 800; letter-spacing: -1px; }
+    .program-symbol { width: 40px; height: 40px; display: grid; place-items: center; border: 2px solid var(--blue); color: var(--blue); border-radius: 50%; font-size: 23px; font-weight: 800; }
+    .program-body { padding: 24px 26px; }
+    .program-body h3 { font-size: 20px; }
+    .program-body p { margin: 0; font-size: 14px; color: var(--muted); }
+    .program-footnote { margin: 22px 0 0; font-size: 13px; color: var(--muted); }
+    .schedule { background: var(--sky); }
+    .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .schedule-panel { background: var(--white); padding: 28px; border-radius: 8px; }
+    .schedule-panel h3 { margin-bottom: 24px; font-size: 17px; color: var(--blue); }
+    .schedule-panel .data-list > div { grid-template-columns: 116px 1fr; }
+    .schedule-panel .data-list > div:last-child { border-bottom: 0; padding-bottom: 0; }
+    .apply { background: var(--white); }
+    .apply-panel { display: grid; grid-template-columns: 1.6fr 1fr; border: 2px solid var(--blue); border-radius: 10px; overflow: hidden; }
+    .apply-main { padding: 32px; }
+    .apply-period { margin: 6px 0 24px; font-size: 24px; color: var(--blue); font-weight: 800; line-height: 1.5; letter-spacing: -.6px; }
+    .apply-main h3 { font-size: 17px; margin-bottom: 6px; }
+    .apply-main > p:not(.apply-period) { margin: 0; font-size: 15px; }
+    .apply-note { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .apply-note p { margin: 6px 0; }
+    .apply-qr { background: var(--light); padding: 30px; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; border-left: 1px solid var(--line); }
+    .qr-empty { width: 160px; min-height: 150px; border: 2px dashed #9bb5d6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 9px; color: var(--muted); background: var(--white); }
+    .qr-empty strong { font-size: 16px; }
+    .apply-qr p { font-size: 12px; color: var(--muted); margin: 15px 0 0; }
+    .apply-details { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+    .apply-details .data-list > div { grid-template-columns: 128px 1fr; }
+    .unknown { background: var(--light); padding-block: 60px; border-top: 1px solid var(--line); }
+    .unknown h2 { font-size: 27px; }
+    .unknown-intro { margin: 12px 0 25px; font-size: 14px; color: var(--muted); }
+    details { border-top: 1px solid var(--line); }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; padding: 18px 3px; font-size: 15px; font-weight: 700; }
+    summary::marker { color: var(--blue); }
+    details .detail-content { margin: 0 0 22px 24px; font-size: 13px; color: var(--muted); }
+    details ul { padding-left: 18px; }
+    details li { margin-block: 7px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .contact-card { background: var(--sky); padding: 30px; border-radius: 8px; }
+    .contact-card .phone-label { color: var(--muted); font-size: 13px; margin: 0; }
+    .phone { font-family: Arial, sans-serif; font-size: clamp(27px, 3.3vw, 40px); font-weight: 800; color: var(--blue); letter-spacing: -1px; margin: 10px 0; line-height: 1.2; }
+    .contact-card .note { color: var(--muted); font-size: 12px; margin: 12px 0 0; }
+    .footer { background: var(--deep); color: #d4e0f5; padding-block: 30px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer strong { display: block; color: var(--white); font-size: 15px; }
+    .footer p { margin: 4px 0 0; font-size: 12px; }
+    .footer a { font-size: 13px; text-decoration: none; white-space: nowrap; }
+    @media (min-width: 1600px) { .hero-grid { padding-block: 90px; } }
+    @media (max-width: 1000px) {
+      .wrap { width: calc(100% - 48px); }
+      .nav { gap: 18px; }
+      .nav a { font-size: 12px; }
+      .hero-grid { gap: 34px; }
+      h1 { letter-spacing: -2.5px; }
+      .ticket-head, .ticket-date, .ticket-body { padding-inline: 23px; }
+      .hero-description { font-size: 15px; }
+      .program-body, .program-cover { padding-inline: 20px; }
+      .data-list > div { grid-template-columns: 110px 1fr; gap: 14px; }
+    }
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 118px; }
+      .wrap { width: calc(100% - 40px); }
+      .header-inner { min-height: 102px; display: block; padding-block: 12px; }
+      .wordmark { font-size: 15px; display: inline-block; }
+      .wordmark small { font-size: 9px; letter-spacing: 1.3px; }
+      .nav { justify-content: space-between; gap: 12px; margin-top: 10px; }
+      .nav a { font-size: 11px; }
+      .nav .nav-apply { padding: 6px 10px; }
+      .hero-grid { grid-template-columns: 1fr; padding-block: 44px 42px; gap: 36px; }
+      h1 { font-size: clamp(42px, 10vw, 62px); letter-spacing: -2.5px; }
+      .hero .eyebrow { margin-bottom: 20px; }
+      .hero-description { margin-top: 22px; }
+      .hero .button { margin-top: 24px; }
+      .date-range { font-size: clamp(30px, 9vw, 40px); justify-content: space-between; gap: 8px; }
+      .ticket-head { padding-block: 20px 16px; }
+      .ticket-date { padding-block: 20px; }
+      .route-inner { padding-block: 20px; }
+      .route-inner a { font-size: 11px; gap: 6px; }
+      .route-dot { width: 10px; height: 10px; border-width: 2px; }
+      .route-line { margin-inline: 7px; }
+      section.content-section { padding-block: 52px; }
+      h2 { font-size: 28px; }
+      .section-top { display: block; margin-bottom: 26px; }
+      .section-top > p { margin-top: 10px; font-size: 13px; }
+      .purpose, .audience-grid, .schedule-grid, .apply-details, .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+      .purpose { gap: 14px; }
+      .purpose-block { padding-block: 12px; }
+      .purpose-block h3 { font-size: 20px; }
+      .message strong { display: block; margin-bottom: 6px; }
+      .programs { grid-template-columns: 1fr; gap: 16px; }
+      .program { display: grid; grid-template-columns: 92px 1fr; }
+      .program-cover { height: auto; padding: 20px 12px; flex-direction: column; justify-content: center; gap: 14px; }
+      .program-cover .word { font-size: 16px; }
+      .program-symbol { width: 30px; height: 30px; font-size: 18px; }
+      .program-body { padding: 22px 18px; }
+      .program-body h3 { font-size: 18px; }
+      .program-body p { font-size: 13px; }
+      .schedule-panel { padding: 24px; }
+      .schedule-panel .data-list > div { grid-template-columns: 90px 1fr; gap: 12px; }
+      .apply-panel { grid-template-columns: 1fr; }
+      .apply-main { padding: 25px; }
+      .apply-period { font-size: 22px; }
+      .apply-qr { border-left: 0; border-top: 1px solid var(--line); padding-block: 25px; }
+      .qr-empty { min-height: 90px; width: 100%; max-width: 240px; }
+      .apply-details .data-list > div { grid-template-columns: 110px 1fr; }
+      .unknown { padding-block: 44px; }
+      .contact-card { padding: 25px; }
+      .footer-inner { align-items: flex-start; }
+      .footer strong { font-size: 13px; }
+    }
+    @media (max-width: 360px) {
+      .wrap { width: calc(100% - 28px); }
+      .nav { gap: 7px; }
+      .date-range { font-size: 30px; gap: 8px; }
+      h1 { font-size: 39px; }
+      .route-inner a { font-size: 10px; }
+      .data-list > div { grid-template-columns: 94px 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+      .button:hover { transform: none; }
+    }
+    @media print {
+      .header { position: static; }
+      .nav, .route-nav, .button, .footer a { display: none; }
+      .wrap { width: 100%; }
+      .hero { color: var(--ink); background: var(--white); }
+      .hero .eyebrow, h1 .tint, .hero-description { color: var(--ink); }
+      .hero-grid { padding-block: 25px; gap: 25px; }
+      h1 { font-size: 40px; }
+      section.content-section { padding-block: 25px; }
+      .ticket { box-shadow: none; border: 1px solid var(--line); }
+      .ticket-body::before, .ticket-body::after { display: none; }
+      .program, .schedule-panel, .teacher-panel, .contact-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 바로가기</a>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#top">부산교통공사<small>청소년 역무원 체험 안내</small></a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="#about">행사 소개</a>
+        <a href="#program">프로그램</a>
+        <a href="#schedule">일정·장소</a>
+        <a href="#contact">문의</a>
+        <a class="nav-apply" href="#apply">신청 안내</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="event-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">청소년 직업 체험 · 도시철도 안전 교육</p>
+          <h1 id="event-title"><span class="organizer">부산교통공사</span><span class="line">청소년</span><span class="line tint">역무원 체험</span></h1>
+          <p class="hero-description">역무실 견학과 안전 교육,<br>진로 관련 정보를 도시철도 현장에서 만나보세요.</p>
+          <div class="hero-tags"><span>부산시 거주 청소년</span><span>참가비 무료</span><span>인솔 교사 참석 필수</span></div>
+          <a class="button" href="#apply">신청 안내 보기 <span aria-hidden="true">↗</span></a>
+        </div>
+        <aside class="ticket" aria-label="참가 안내 요약">
+          <div class="ticket-head"><strong>참가 안내</strong><span>2026</span></div>
+          <div class="ticket-date">
+            <p class="date-label">신청 기간</p>
+            <div class="date-range" aria-hidden="true"><span>09.25</span><span class="dash">—</span><span>10.14</span></div>
+            <p class="date-text">2026년 9월 25일 ~ 2026년 10월 14일</p>
+          </div>
+          <div class="ticket-body">
+            <div class="ticket-row"><span>행사일</span><strong>11월 내 합의 후 결정</strong></div>
+            <div class="ticket-row"><span>장소</span><strong>강서구청역 역무안전실 앞</strong></div>
+            <div class="ticket-row"><span>운영</span><strong>회차별 2시간 진행 · 총 3회</strong></div>
+            <div class="ticket-row"><span>인원 조건</span><strong>회차별 최소 10명 이상</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+    <nav class="route-nav" aria-label="행사 안내 바로가기">
+      <div class="wrap route-inner">
+        <a href="#audience"><span class="route-dot" aria-hidden="true"></span>참가 대상</a><span class="route-line" aria-hidden="true"></span>
+        <a href="#program"><span class="route-dot" aria-hidden="true"></span>체험 프로그램</a><span class="route-line" aria-hidden="true"></span>
+        <a href="#apply"><span class="route-dot" aria-hidden="true"></span>신청 안내</a><span class="route-line" aria-hidden="true"></span>
+        <a href="#contact"><span class="route-dot" aria-hidden="true"></span>문의</a>
+      </div>
+    </nav>
+    <section class="content-section" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="section-top"><div><span class="section-kicker">ABOUT THE EXPERIENCE</span><h2 id="about-title">도시철도를 알아가는 시간</h2></div><p>직업 체험과 안전 이용 교육을 함께합니다.</p></div>
+        <div class="purpose">
+          <div class="purpose-block"><h3>직업 체험 기회 제공</h3><p>역무실 견학과 진로 관련 정보 제공을 통해<br>청소년에게 직업 체험 기회를 제공합니다.</p></div>
+          <div class="purpose-block"><h3>안전 이용 수칙 교육</h3><p>도시철도 안전 이용 수칙을 배우고,<br>안전 수칙을 준수하는 이용을 유도합니다.</p></div>
+        </div>
+        <div class="message"><strong>행사의 핵심 방향</strong>청소년의 도시철도 이용 증대 및 안전 수칙을 준수하는 이용</div>
+      </div>
+    </section>
+    <section class="content-section audience" id="audience" aria-labelledby="audience-title">
+      <div class="wrap">
+        <div class="section-top"><div><span class="section-kicker">WHO CAN JOIN</span><h2 id="audience-title">참가 대상과 조건</h2></div><p>신청 전, 참가 조건을 확인해 주세요.</p></div>
+        <div class="audience-grid">
+          <dl class="data-list">
+            <div><dt>참가 대상</dt><dd>부산시 거주 청소년</dd></div>
+            <div><dt>참가 연령</dt><dd>만 13세 이상 만 18세 미만 청소년</dd></div>
+            <div><dt>인원 조건</dt><dd>회차별 최소 10명 이상</dd></div>
+            <div><dt>모집 인원</dt><dd>회차별 최소 10명 이상</dd></div>
+          </dl>
+          <div class="teacher-panel"><span class="label">필수 참여 조건</span><h3>인솔 교사<br>참석 필수</h3></div>
+        </div>
+      </div>
+    </section>
+    <section class="content-section" id="program" aria-labelledby="program-title">
+      <div class="wrap">
+        <div class="section-top"><div><span class="section-kicker">EXPERIENCE PROGRAM</span><h2 id="program-title">무엇을 경험하나요?</h2></div><p>견학 · 안전 교육 · 진로 정보</p></div>
+        <div class="programs">
+          <article class="program"><div class="program-cover" aria-hidden="true"><span class="word">견학</span><span class="program-symbol">↗</span></div><div class="program-body"><h3>역무실 견학</h3><p>역무실을 견학하며<br>도시철도 현장을 만납니다.</p></div></article>
+          <article class="program"><div class="program-cover" aria-hidden="true"><span class="word">안전</span><span class="program-symbol">✓</span></div><div class="program-body"><h3>안전 교육</h3><p>도시철도를 안전하게 이용하는<br>수칙을 배웁니다.</p></div></article>
+          <article class="program"><div class="program-cover" aria-hidden="true"><span class="word">진로</span><span class="program-symbol">→</span></div><div class="program-body"><h3>진로 관련 정보 제공</h3><p>청소년 대상<br>진로 관련 정보를 제공합니다.</p></div></article>
+        </div>
+        <p class="program-footnote">프로그램별 세부 내용, 진행 순서 및 소요 시간은 <span class="pending">미정</span>입니다.</p>
+      </div>
+    </section>
+    <section class="content-section schedule" id="schedule" aria-labelledby="schedule-title">
+      <div class="wrap">
+        <div class="section-top"><div><span class="section-kicker">WHEN &amp; WHERE</span><h2 id="schedule-title">일정과 장소</h2></div><p>행사일은 11월 내 합의 후 결정됩니다.</p></div>
+        <div class="schedule-grid">
+          <div class="schedule-panel"><h3>운영 일정</h3><dl class="data-list">
+            <div><dt>행사일</dt><dd>11월 내 합의 후 결정<small>구체적인 날짜는 미정</small></dd></div>
+            <div><dt>진행 시간</dt><dd>회차별 2시간</dd></div>
+            <div><dt>운영 횟수</dt><dd>총 3회</dd></div>
+            <div><dt>회차별 일정</dt><dd><span class="pending">미정</span><small>날짜, 시작·종료 시각 미정</small></dd></div>
+          </dl></div>
+          <div class="schedule-panel"><h3>장소 안내</h3><dl class="data-list">
+            <div><dt>행사 장소</dt><dd>강서구청역 역무안전실 앞</dd></div>
+            <div><dt>집결 장소</dt><dd><span class="pending">미정</span></dd></div>
+          </dl></div>
+        </div>
+      </div>
+    </section>
+    <section class="content-section apply" id="apply" aria-labelledby="apply-title">
+      <div class="wrap">
+        <div class="section-top"><div><span class="section-kicker">HOW TO JOIN</span><h2 id="apply-title">참가 신청 안내</h2></div><p>참가비는 무료입니다.</p></div>
+        <div class="apply-panel">
+          <div class="apply-main"><h3>신청 기간</h3><p class="apply-period">2026. 9. 25. ~ 10. 14.</p><h3>신청 방법</h3><p>홈페이지 모집 공고 내 QR 코드를 통해<br>네이버 폼으로 접수합니다.</p><div class="apply-note"><p>실제 신청 QR 코드는 아직 제공되지 않았습니다.</p></div></div>
+          <div class="apply-qr"><div class="qr-empty"><strong>신청 QR 코드</strong><span class="pending">미정</span></div><p>실제 QR 코드가 제공되면 확인할 수 있습니다.</p></div>
+        </div>
+        <div class="apply-details">
+          <dl class="data-list"><div><dt>참가비</dt><dd>무료</dd></div><div><dt>인솔 조건</dt><dd>인솔 교사 참석 필수</dd></div><div><dt>개인·단체 신청</dt><dd><span class="pending">미정</span></dd></div></dl>
+          <dl class="data-list"><div><dt>참가자 선발 방식</dt><dd>선착순</dd></div><div><dt>결과 안내 일정</dt><dd><span class="pending">미정</span></dd></div><div><dt>결과 안내 방법</dt><dd>개별 연락</dd></div></dl>
+        </div>
+      </div>
+    </section>
+    <section class="unknown" id="pending" aria-labelledby="pending-title">
+      <div class="wrap">
+        <span class="section-kicker">TO BE CONFIRMED</span><h2 id="pending-title">아직 미정인 정보</h2><p class="unknown-intro">아래 항목은 아직 확정되지 않았습니다. 항목을 펼쳐 확인할 수 있습니다.</p>
+        <details><summary>전체 모집 인원</summary><div class="detail-content"><p>전체 모집 인원: 미정 (회차별 최소 10명 이상)</p></div></details>
+        <details><summary>일정·집결 장소·프로그램 세부 내용</summary><div class="detail-content"><ul><li>행사일 및 회차별 날짜·시작·종료 시각: 미정 (11월 내 합의 후 결정)</li><li>집결 장소: 미정</li><li>프로그램별 세부 내용·순서·소요 시간: 미정</li></ul></div></details>
+        <details><summary>신청·결과 안내</summary><div class="detail-content"><ul><li>개인·단체 신청 구분: 미정</li><li>결과 안내 일정: 미정</li><li>실제 신청 QR 코드: 미정</li></ul></div></details>
+        <details><summary>운영·문의·홍보 자료</summary><div class="detail-content"><ul><li>공식 주최·주관 표기: 미정 (운영 주체는 부산교통공사)</li><li>담당 부서·담당자: 미정</li><li>문의 전화번호의 최종 공개 여부·문의 이메일: 미정</li><li>최종 홍보 문구: 미정</li><li>공식 색상 코드 및 사용할 로고·사진·포스터: 미정</li></ul></div></details>
+      </div>
+    </section>
+    <section class="content-section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="section-top"><div><span class="section-kicker">CONTACT</span><h2 id="contact-title">운영 및 문의</h2></div></div>
+        <div class="contact-grid">
+          <dl class="data-list"><div><dt>운영 주체</dt><dd>부산교통공사</dd></div><div><dt>주최·주관</dt><dd><span class="pending">미정</span><small>공식 표기 미정</small></dd></div><div><dt>담당 부서</dt><dd><span class="pending">미정</span></dd></div><div><dt>담당자</dt><dd><span class="pending">미정</span></dd></div></dl>
+          <div class="contact-card"><p class="phone-label">문의 전화번호</p><p class="phone">051-000-0000</p><p class="note">제공된 번호이며, 최종 공개 여부는 <span class="pending">미정</span>입니다.</p><p class="note">문의 이메일 <span class="pending">미정</span></p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>부산교통공사 청소년 역무원 체험</strong><p>운영 주체 · 부산교통공사</p></div><a href="#top">맨 위로 <span aria-hidden="true">↑</span></a></div></footer>
+</body>
+</html>
